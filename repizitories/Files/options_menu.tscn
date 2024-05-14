@@ -1,0 +1,85 @@
+[gd_scene load_steps=8 format=3 uid="uid://csgyei5ery01l"]
+
+[ext_resource type="Script" path="res://options_menu.gd" id="1_7a6ku"]
+[ext_resource type="Texture2D" uid="uid://bjvxdvus8xndq" path="res://assets/sprites/notready.png" id="1_8i1su"]
+[ext_resource type="Texture2D" uid="uid://c664lesi6m0py" path="res://assets/sprites/ready.png" id="2_dkeg1"]
+[ext_resource type="Texture2D" uid="uid://cck5tw0i2h8ya" path="res://assets/sprites/back.png" id="3_1fk5j"]
+[ext_resource type="Script" path="res://voluem.gd" id="4_c6gqt"]
+[ext_resource type="Texture2D" uid="uid://cigl21terqhgi" path="res://assets/sprites/blurebackgroung.jpg" id="4_da88r"]
+[ext_resource type="AudioStream" uid="uid://bfkktv5c4u1xd" path="res://audio/SEGA OST 16-Bit - Rock'n'Roll Racing - Track 6.mp3" id="6_h4x6v"]
+
+[node name="menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7a6ku")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 100.0
+offset_right = 192.0
+offset_bottom = 123.0
+text = "Вкл/Выкл музыку"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 27.0
+offset_right = 326.0
+offset_bottom = 50.0
+text = "Настройки"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 149.0
+offset_right = 120.0
+offset_bottom = 172.0
+text = "Вкл/Выкл звуки"
+
+[node name="voluem" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 198.0
+offset_top = 105.0
+offset_right = 214.0
+offset_bottom = 121.0
+toggle_mode = true
+texture_normal = ExtResource("2_dkeg1")
+texture_pressed = ExtResource("1_8i1su")
+script = ExtResource("4_c6gqt")
+
+[node name="voluem2" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 198.0
+offset_top = 155.0
+offset_right = 214.0
+offset_bottom = 171.0
+toggle_mode = true
+texture_normal = ExtResource("1_8i1su")
+texture_pressed = ExtResource("2_dkeg1")
+
+[node name="back" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 386.0
+offset_top = 562.0
+offset_right = 460.0
+offset_bottom = 619.0
+texture_normal = ExtResource("3_1fk5j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(240, 320)
+scale = Vector2(1.37143, 1.6)
+texture = ExtResource("4_da88r")
+
+[node name="optionsmenumusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_h4x6v")
+volume_db = -26.0
+
+[connection signal="pressed" from="voluem" to="voluem" method="_on_pressed"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

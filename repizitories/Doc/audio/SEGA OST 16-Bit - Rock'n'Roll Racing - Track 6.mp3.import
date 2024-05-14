@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bfkktv5c4u1xd"
+path="res://.godot/imported/SEGA OST 16-Bit - Rock'n'Roll Racing - Track 6.mp3-8b6484558ae81a41ef48ff513e1bbc73.mp3str"
+
+[deps]
+
+source_file="res://audio/SEGA OST 16-Bit - Rock'n'Roll Racing - Track 6.mp3"
+dest_files=["res://.godot/imported/SEGA OST 16-Bit - Rock'n'Roll Racing - Track 6.mp3-8b6484558ae81a41ef48ff513e1bbc73.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

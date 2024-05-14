@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://ce8eb00yhf74l"]
+
+[ext_resource type="Texture2D" uid="uid://gs387mshfp7s" path="res://assets/sprites/Asteroid 03.png" id="1"]
+[ext_resource type="Script" path="res://scenes/meteor.gd" id="2"]
+[ext_resource type="Script" path="res://scenes/Sprite2D.gd" id="3_75wtt"]
+
+[sub_resource type="CircleShape2D" id="1"]
+radius = 75.0067
+
+[node name="Meteor" type="Area2D"]
+position = Vector2(2125, -226)
+script = ExtResource("2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-859.438, -455.938)
+scale = Vector2(4.44409, 4.49654)
+texture = ExtResource("1")
+script = ExtResource("3_75wtt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-862, -454)
+shape = SubResource("1")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-861.75, -453.141)
+scale = Vector2(7.77499, 7.61406)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

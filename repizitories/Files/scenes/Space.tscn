@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://da61jlhamqla5"]
+
+[ext_resource type="PackedScene" uid="uid://dm8wtkiy7yjcx" path="res://scenes/Player.tscn" id="1"]
+[ext_resource type="FontFile" path="res://resources/fonts/pixel.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://djjpalm4c3o2" path="res://pausemenu.tscn" id="2_0ic1d"]
+[ext_resource type="Script" path="res://scenes/space.gd" id="3"]
+[ext_resource type="Texture2D" uid="uid://deuu28mkf3kg2" path="res://assets/Background.png" id="4"]
+[ext_resource type="Script" path="res://scenes/parallax_background.gd" id="5"]
+[ext_resource type="AudioStream" uid="uid://r1u2x1p214hp" path="res://audio/Игорь _GRiN_ - Три белых коня (16-bit Sega cover).mp3" id="7_aeouk"]
+
+[node name="Space" type="Node2D"]
+script = ExtResource("3")
+
+[node name="Pausemenu" parent="." instance=ExtResource("2_0ic1d")]
+top_level = true
+anchors_preset = 10
+anchor_bottom = 0.0
+offset_left = 144.0
+offset_top = 367.0
+offset_right = 342.0
+offset_bottom = 398.0
+grow_vertical = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+top_level = true
+offset_right = 481.0
+offset_bottom = 41.0
+alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2")
+horizontal_alignment = 1
+
+[node name="Player" parent="." instance=ExtResource("1")]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+offset = Vector2(640, 440)
+transform = Transform2D(1, 0, 0, 1, 640, 440)
+scroll_ignore_camera_zoom = true
+script = ExtResource("5")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(2, 1)
+motion_mirroring = Vector2(0, 600)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(-642, -441)
+scale = Vector2(1.37143, 1.6)
+texture = ExtResource("4")
+centered = false
+
+[node name="MeteorCountdown" type="Timer" parent="."]
+one_shot = true
+
+[node name="musicgame" type="AudioStreamPlayer" parent="."]
+process_mode = 2
+stream = ExtResource("7_aeouk")
+volume_db = -20.0
